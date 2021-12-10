@@ -21,9 +21,11 @@ CREATE TABLE tweets (
 
 
 
-INSERT INTO tweets (topic, userName, verified, handle, time, title, tweet, logoImage, avatarImage,tweeted_by_user_id )
+INSERT INTO tweets (topic, userName, verified, handle, time, title, tweet, logo_image, avatar_image,tweeted_by_user_id )
 VALUES ('Web Development', 'ReactJs', 1, 'ReactJS', '2h', 'React.js is a component based front end library that makes it very easy to build Single Page Applications or SPAs',
         'Lorem Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit', '../../../images/react-blue.png','../../../images/react-blue.png','1')
+
+
 -- INSERT INTO tweets (tweet, tweeted_by_user_id) VALUES ('Alice 1st Tweet', '1');
 -- INSERT INTO tweets (tweet, tweeted_by_user_id) VALUES ('Bob 1st Tweet', '2');
 -- INSERT INTO tweets (tweet, tweeted_by_user_id) VALUES ('Alice 2nd Tweet', '1');

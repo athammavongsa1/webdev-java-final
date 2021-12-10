@@ -16,23 +16,24 @@ INSERT INTO users VALUES (null, 'charlie', 'brown345', 'Charlie', 'Brown', 'char
 INSERT INTO users VALUES (null, 'dan', 'dan456', 'Dan', 'Aykroyd', 'dan@007.com', CURRENT_TIMESTAMP, 0);
 INSERT INTO users VALUES (null, 'edward', 'ed567', 'Edward', 'Scizorhands', 'ed@scizors.com', CURRENT_TIMESTAMP, 1);
 -- INSERT INTO `tuiter`.`users` (`email`, `first_name`, `last_name`, `password`, `username`, `verified`) VALUES ('alice@wonderland.com', 'Alice', 'Wonderland', 'alice123', 'alice', b'1');
+INSERT INTO `db_tuiter`.`users` (`email`, `first_name`, `last_name`, `password`, `username`, `verified`) VALUES ('alice@wonderland.com', 'Alice', 'Wonderland', 'alice123', 'alice', b'1');
 
-
-INSERT INTO `tuiter`.`users`
-(`user_id`,
- `email`,
- `first_name`,
- `joined`,
- `last_name`,
- `password`,
- `username`,
- `verified`)
-VALUES
-    (<{user_id: }>,
-        <{email: }>,
-        <{first_name: }>,
-        <{joined: }>,
-        <{last_name: }>,
-        <{password: }>,
-        <{username: }>,
-        <{verified: }>);
+--
+-- INSERT INTO `tuiter`.`users`
+-- (`user_id`,
+--  `email`,
+--  `first_name`,
+--  `joined`,
+--  `last_name`,
+--  `password`,
+--  `username`,
+--  `verified`)
+-- VALUES
+--     (<{user_id: }>,
+--         <{email: }>,
+--         <{first_name: }>,
+--         <{joined: }>,
+--         <{last_name: }>,
+--         <{password: }>,
+--         <{username: }>,
+--         <{verified: }>);
