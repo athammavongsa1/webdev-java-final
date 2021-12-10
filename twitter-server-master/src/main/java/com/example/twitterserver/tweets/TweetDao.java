@@ -21,6 +21,13 @@ public class TweetDao {
             @PathVariable("tweetId") Integer tweetId) {
         return tweetRepository.findById(tweetId).get();
     }
+    @GetMapping("/api/tweets")
+    public List<Tweet> findAllTweets()
+        {
+        return (List<Tweet>) tweetRepository.findAll();
+        }
+
+
     @GetMapping("/api/users/{userId}/tweets")
     public List<Tweet> findTweetsByUser(
             @PathVariable("userId") Integer userId) {

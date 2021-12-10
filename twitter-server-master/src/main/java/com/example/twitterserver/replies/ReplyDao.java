@@ -12,11 +12,12 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins = "*")
 public class ReplyDao {
-    @Autowired
-    TweetRepository tweetRepository;
-    @GetMapping("/api/tweets/{tweetId}/replies")
-    public List<Reply> findRepliesForTweet(
-            @PathVariable("tweetId") Integer tweetId) {
-        return tweetRepository.findById(tweetId).get().getReplies();
-    }
+//    @Autowired
+//    TweetRepository tweetRepository;
+//    @GetMapping("/api/tweets/{tweetId}/replies")
+//    public List<Reply> findRepliesForTweet(
+//            @PathVariable("tweetId") Integer tweetId) {
+//        return tweetRepository.findById(tweetId).get().getReplies();
+//    }
 }
+

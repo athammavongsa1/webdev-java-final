@@ -17,48 +17,57 @@ public class Tweet {
     private Integer tweetId;
     private String tweet;
     private Timestamp tweetedOn;
+    private String handle;
+    private String username;
+    private String title;
+    private String topic;
+    private Boolean verified;
+    private String time;
+    private String logoImage;
+    private String avatarImage;
+
     @ManyToOne
     private User tweetedBy;
 
-    @OneToMany(mappedBy = "liked")
-    @JsonIgnore
-    private List<Like> likes;
+//    @OneToMany(mappedBy = "liked")
+//    @JsonIgnore
+//    private List<Like> likes;
 
-    @Transient
-    public Integer getLikesCount() {
-        return likes.size();
-    }
-
-    @OneToMany(mappedBy = "repliedTo")
-    @JsonIgnore
-    private List<Reply> replies;
-    @OneToMany(mappedBy = "reply")
-    @JsonIgnore
-    private List<Reply> repliedTo;
-
-    public List<Reply> getReplies() {
-        return replies;
-    }
-
-    public void setReplies(List<Reply> replies) {
-        this.replies = replies;
-    }
-
-    public List<Reply> getRepliedTo() {
-        return repliedTo;
-    }
-
-    public void setRepliedTo(List<Reply> repliedTo) {
-        this.repliedTo = repliedTo;
-    }
-
-    public List<Like> getLikes() {
-        return likes;
-    }
-
-    public void setLikes(List<Like> likes) {
-        this.likes = likes;
-    }
+//    @Transient
+//    public Integer getLikesCount() {
+//        return likes.size();
+//    }
+//
+//    @OneToMany(mappedBy = "repliedTo")
+//    @JsonIgnore
+//    private List<Reply> replies;
+//    @OneToMany(mappedBy = "reply")
+//    @JsonIgnore
+//    private List<Reply> repliedTo;
+//
+//    public List<Reply> getReplies() {
+//        return replies;
+//    }
+//
+//    public void setReplies(List<Reply> replies) {
+//        this.replies = replies;
+//    }
+//
+//    public List<Reply> getRepliedTo() {
+//        return repliedTo;
+//    }
+//
+//    public void setRepliedTo(List<Reply> repliedTo) {
+//        this.repliedTo = repliedTo;
+//    }
+//
+//    public List<Like> getLikes() {
+//        return likes;
+//    }
+//
+//    public void setLikes(List<Like> likes) {
+//        this.likes = likes;
+//    }
 
     public Integer getTweetId() {
         return tweetId;
@@ -90,5 +99,70 @@ public class Tweet {
 
     public void setTweetedBy(User tweetedBy) {
         this.tweetedBy = tweetedBy;
+    }
+
+
+    public Boolean getVerified() {
+        return verified;
+    }
+
+    public void setVerified(Boolean verified) {
+        this.verified = verified;
+    }
+
+    public String getTopic() {
+        return topic;
+    }
+
+    public void setTopic(String topic) {
+        this.topic = topic;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getHandle() {
+        return handle;
+    }
+
+    public void setHandle(String handle) {
+        this.handle = handle;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getLogoImage() {
+        return logoImage;
+    }
+
+    public void setLogoImage(String logoImage) {
+        this.logoImage = logoImage;
+    }
+
+    public String getAvatarImage() {
+        return avatarImage;
+    }
+
+    public void setAvatarImage(String avatarImage) {
+        this.avatarImage = avatarImage;
     }
 }
