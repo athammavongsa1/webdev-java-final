@@ -1,6 +1,5 @@
-package com.example.tuiterserver.users;
+package com.example.twitterserver.users;
 
-import com.example.tuiterserver.tweets.Tweet;
 import com.example.twitterserver.likes.Like;
 import com.example.twitterserver.tweets.Tweet;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -26,17 +25,17 @@ public class User {
     @JsonIgnore
     private List<Tweet> tweets;
 
-//    @OneToMany(mappedBy = "likedBy")
-//    @JsonIgnore
-//    private List<Like> likes;
-//
-//    public List<Like> getLikes() {
-//        return likes;
-//    }
-//
-//    public void setLikes(List<Like> likes) {
-//        this.likes = likes;
-//    }
+    @OneToMany(mappedBy = "likedBy")
+    @JsonIgnore
+    private List<Like> likes;
+
+    public List<Like> getLikes() {
+        return likes;
+    }
+
+    public void setLikes(List<Like> likes) {
+        this.likes = likes;
+    }
 
     public List<Tweet> getTweets() {
         return tweets;

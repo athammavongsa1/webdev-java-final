@@ -1,6 +1,5 @@
-package com.example.tuiterserver.tweets;
+package com.example.twitterserver.tweets;
 
-import com.example.tuiterserver.users.UserRepository;
 import com.example.twitterserver.users.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;

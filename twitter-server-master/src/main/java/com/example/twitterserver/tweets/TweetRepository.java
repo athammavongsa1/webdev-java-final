@@ -1,4 +1,4 @@
-package com.example.tuiterserver.tweets;
+package com.example.twitterserver.tweets;
 
 import org.springframework.data.repository.CrudRepository;
 

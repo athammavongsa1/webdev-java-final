@@ -1,4 +1,4 @@
-package com.example.tuiterserver;
+package com.example.twitterserver;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
