@@ -15,12 +15,17 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer userId;
     private String userName;
-    private String password;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private Timestamp joined;
-    private Boolean verified;
+    private String profilePicture;
+    private String bannerPicture;
+    private String bio;
+    private String website;
+    private String location;
+    private String dateOfBirth;
+    private String dateJoined;
+    private String followerCount;
+    private String followingCount;
+
+
     @OneToMany(mappedBy = "tweetedBy")
     @JsonIgnore
     private List<Tweet> tweets;
@@ -45,14 +50,6 @@ public class User {
         this.tweets = tweets;
     }
 
-    public Boolean getVerified() {
-        return verified;
-    }
-
-    public void setVerified(Boolean verified) {
-        this.verified = verified;
-    }
-
     public Integer getUserId() {
         return userId;
     }
@@ -69,43 +66,76 @@ public class User {
         this.userName = username;
     }
 
-    public String getPassword() {
-        return password;
+    public String getProfilePicture() {
+        return profilePicture;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setProfilePicture(String profilePicture) {
+        this.profilePicture = profilePicture;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getBannerPicture() {
+        return bannerPicture;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setBannerPicture(String bannerPicture) {
+        this.bannerPicture = bannerPicture;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getBio() {
+        return bio;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setBio(String bio) {
+        this.bio = bio;
     }
 
-    public String getEmail() {
-        return email;
+    public String getWebsite() {
+        return website;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setWebsite(String website) {
+        this.website = website;
     }
 
-    public Timestamp getJoined() {
-        return joined;
+    public String getLocation() {
+        return location;
     }
 
-    public void setJoined(Timestamp joined) {
-        this.joined = joined;
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getDateJoined() {
+        return dateJoined;
+    }
+
+    public void setDateJoined(String dateJoined) {
+        this.dateJoined = dateJoined;
+    }
+
+
+    public String getFollowerCount() {
+        return followerCount;
+    }
+
+    public void setFollowerCount(String followerCount) {
+        this.followerCount = followerCount;
+    }
+
+    public String getFollowingCount() {
+        return followingCount;
+    }
+
+    public void setFollowingCount(String followingCount) {
+        this.followingCount = followingCount;
     }
 }

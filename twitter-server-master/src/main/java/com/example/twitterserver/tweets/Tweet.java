@@ -4,6 +4,8 @@ import com.example.twitterserver.likes.Like;
 import com.example.twitterserver.replies.Reply;
 import com.example.twitterserver.users.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.persistence.*;
 import java.sql.Timestamp;

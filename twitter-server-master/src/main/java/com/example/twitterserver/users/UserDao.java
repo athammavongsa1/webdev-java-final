@@ -24,46 +24,17 @@ public class UserDao {
             @PathVariable("userId") Integer userId) {
         return userRepository.findById(userId).get();
     }
-
+    // probably want to change to send over a request body
+    //and then appened all those based on body
+    //have almost all fields required for register, otherwise no need for func
     @PostMapping("/api/user/create/{userName}")
-    public void createRecord(
+    public void createUser(
             @PathVariable("userName") String userName) {
         {
             User newRecord = new User();
-            String user = userName + "123";
-            newRecord.setUsername(user);
-            newRecord.setFirstName(userName);
-            newRecord.setLastName("");
-            newRecord.setEmail(userName + "@gmail.com");
-            newRecord.setPassword("");
-            newRecord.setVerified(true);
             userRepository.save(newRecord);
         }
     }
-
-    @PostMapping("/api/user/login/set")
-    public User login( @RequestBody User user,
-           HttpSession session) {
-                session.setAttribute("currentUser", user);
-                return user;
-            }
-    @GetMapping("/api/user/login/get")
-    public Optional<User> getLoggedInUser(HttpSession session) {
-        User currentUser = (User)
-                 session.getAttribute("currentUser");
-
-        Optional<User> userFromDb = userRepository.findById(currentUser.getUserId());
-
-        return userFromDb;
-    }
-
-    @PostMapping("/api/user/logout")
-    public void logout
-            (HttpSession session) {
-        session.invalidate();
-    }
-
-
 
 
 }
