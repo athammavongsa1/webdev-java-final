@@ -32,8 +32,9 @@
 --
 --
 -- select * from tuiter.users;
---
--- INSERT INTO `tuiter`.`users`
+
+
+-- INSERT INTO `tuiter_db`.`users`
 -- (`user_id`,
 --  `user_name`,
 --  `bio`,
