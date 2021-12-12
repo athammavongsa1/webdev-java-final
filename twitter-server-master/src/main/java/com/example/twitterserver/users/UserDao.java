@@ -24,17 +24,20 @@ public class UserDao {
             @PathVariable("userId") Integer userId) {
         return userRepository.findById(userId).get();
     }
-    // probably want to change to send over a request body
-    //and then appened all those based on body
-    //have almost all fields required for register, otherwise no need for func
-    @PostMapping("/api/user/create/{userName}")
-    public void createUser(
-            @PathVariable("userName") String userName) {
-        {
-            User newRecord = new User();
-            userRepository.save(newRecord);
-        }
+
+    //login
+    @PostMapping("/api/register")
+    public User register(@RequestBody User user, HttpSession session){
+        session.setAttribute("currentUser", user);
+        return user;
     }
+
+    @PostMapping("/api/loggedin")
+    public User loggedIn(HttpSession session){
+       return  (User) session.getAttribute("currentUser");
+    }
+
+
 
 
 }
