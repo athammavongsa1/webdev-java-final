@@ -46,17 +46,17 @@ public class UserDao {
         //findUserByCredentials and pass the userName and password in the login user
 //        User user = userRepository.findUserByCredentials(loginUser.getUser_name(), loginUser.getPassword);
 
-        System.out.println(loginUser.getUsername());
+//        System.out.println(loginUser.getUsername());
 
-        return loginUser;
+//        return loginUser;
 
-//        for(User user: userRepository.findAll()){
-//            if(user.getUsername().equals(loginUser.getUsername())){
-//                session.setAttribute("currentUser", user);
-//                return user;
-//            }
-//        }
-//        return null;
+        for(User user: userRepository.findAll()){
+            if(user.getUsername().equals(loginUser.getUsername())){
+                session.setAttribute("currentUser", user);
+                return user;
+            }
+        }
+        return null;
 
     }
 
