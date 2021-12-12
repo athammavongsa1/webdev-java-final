@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:3000")
 public class UserDao {
     @Autowired
     UserRepository userRepository;
@@ -33,22 +33,30 @@ public class UserDao {
         userRepository.save(user);
         return user;
     }
-    //gets?? who logs in (why is not a get endpoint --- can only think of this for security purposes)
     @PostMapping("/api/loggedin")
     public User loggedIn(HttpSession session){
        return  (User) session.getAttribute("currentUser");
     }
     //need to change this logic that it asks for a match on the userId? idk how
-    @PostMapping("api/login")
+    //do a find userUserByUserNameAndPassword
+    //select
+    @PostMapping("/api/login")
     public User login(@RequestBody User loginUser, HttpSession session)
     {
-        for(User user: userRepository.findAll()){
-            if(user.getUser_name().equals(loginUser.getUser_name())){
-                session.setAttribute("currentUser", user);
-                return user;
-            }
-        }
-        return null;
+        //findUserByCredentials and pass the userName and password in the login user
+//        User user = userRepository.findUserByCredentials(loginUser.getUser_name(), loginUser.getPassword);
+
+        System.out.println(loginUser.getUsername());
+
+        return loginUser;
+
+//        for(User user: userRepository.findAll()){
+//            if(user.getUsername().equals(loginUser.getUsername())){
+//                session.setAttribute("currentUser", user);
+//                return user;
+//            }
+//        }
+//        return null;
 
     }
 
