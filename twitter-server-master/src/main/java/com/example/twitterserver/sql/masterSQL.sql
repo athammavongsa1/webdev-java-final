@@ -1,0 +1,22 @@
+-- if who to follow doesn't load
+-- CREATE TABLE whoToFollow (
+--  who_id int NOT NULL AUTO_INCREMENT,
+--  avatar_icon varchar(255) DEFAULT NULL,
+--  handle varchar(255) DEFAULT NULL,
+--  PRIMARY KEY (who_id)
+-- );
+
+-- for users
+
+-- INSERT INTO `tuiter_db`.`users`
+-- (`user_id`,
+--  `user_name`,
+--  `bio`,
+--  `profile_picture`,
+--  `banner_picture`,
+--  `website`,
+--  `location`,
+--  `date_of_birth`,
+--  `date_joined`,
+--  `follower_count`,
+--  `following_count`)  values (null, 'kathainoi', 'NEU Student', '/imgs/jose.png', '/public/imgs/banner.jpg', 'google.com', 'Houston,TX', '1996-02-16', '4/2009', 312, 180);
