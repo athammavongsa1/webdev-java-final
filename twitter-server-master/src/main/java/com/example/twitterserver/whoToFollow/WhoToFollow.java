@@ -13,27 +13,10 @@ import java.util.List;
 public class WhoToFollow {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String who_id;
-    private String avatar_icon;
+    private String avatarIcon;
     private String handle;
-    private String user_name;
-
-
-    public String getWho_id() {
-        return who_id;
-    }
-
-    public void setWho_id(String who_id) {
-        this.who_id = who_id;
-    }
-
-    public String getAvatar_icon() {
-        return avatar_icon;
-    }
-
-    public void setAvatar_icon(String avatar_icon) {
-        this.avatar_icon = avatar_icon;
-    }
+    private String username;
+    private String whoId;
 
     public String getHandle() {
         return handle;
@@ -43,11 +26,27 @@ public class WhoToFollow {
         this.handle = handle;
     }
 
-    public String getUser_name() {
-        return user_name;
+    public String getAvatarIcon() {
+        return avatarIcon;
     }
 
-    public void setUser_name(String user_name) {
-        this.user_name = user_name;
+    public void setAvatarIcon(String avatarIcon) {
+        this.avatarIcon = avatarIcon;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getWhoId() {
+        return whoId;
+    }
+
+    public void setWhoId(String whoId) {
+        this.whoId = whoId;
     }
 }
