@@ -9,7 +9,10 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+//@CrossOrigin(origins = "https://localhost:3000") # not working
+//@CrossOrigin(origins = "https://localhost:8080") # not working
+//@CrossOrigin(origins = "*") # not working
+@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 public class UserDao {
     @Autowired
     UserRepository userRepository;
@@ -33,6 +36,10 @@ public class UserDao {
         userRepository.save(user);
         return user;
     }
+
+    // You cannot send a req.body with a GET
+    // You cannot send credentials using a GET
+    // Effectively, we are forcing this POST mapping to be read-only
     @PostMapping("/api/loggedin")
     public User loggedIn(HttpSession session){
        return  (User) session.getAttribute("currentUser");
