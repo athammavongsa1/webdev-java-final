@@ -28,16 +28,10 @@ public class UserDao {
     public void updateUserProfile(
             @RequestBody User newRecord
     ) {
-        System.out.println("what the new record is" +  newRecord.getFirstName());
         User oldRecord = userRepository.findById(newRecord.getUserId()).get();
-
         oldRecord.setFirstName(newRecord.getFirstName());
-
         userRepository.save(oldRecord);
     }
-
-
-
 
     //all apis related to login below
 

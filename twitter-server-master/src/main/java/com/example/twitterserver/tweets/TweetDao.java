@@ -33,8 +33,23 @@ public class TweetDao {
         return userRepository.findById(userId).get()
                 .getTweets();
     }
+    @PostMapping("/api/postNewTweet")
+    public Tweet postNewTweet(@RequestBody Tweet tweet){
+        return tweetRepository.save(tweet);
+
+    }
 
 
+
+//
+//    @PostMapping("/api/postNewTweet")
+//    public User register(@RequestBody Tweet tweet){
+//
+//        tweetRepository.save(tweet);
+//        return user;
+//    }
+//
+//
 
 }
 

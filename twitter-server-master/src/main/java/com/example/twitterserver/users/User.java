@@ -25,6 +25,7 @@ public class User {
     private String dateJoined;
     private String followerCount;
     private String followingCount;
+    private String password;
 
     //here are all the setters and getters for user
     public Integer getUserId() {
@@ -153,5 +154,13 @@ public class User {
 
     public void setFollowingCount(String followingCount) {
         this.followingCount = followingCount;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
