@@ -23,6 +23,23 @@ public class UserDao {
             @PathVariable("userId") Integer userId) {
         return userRepository.findById(userId).get();
     }
+    @PutMapping("/api/updateUserProfile")
+
+    public void updateUserProfile(
+            @RequestBody User newRecord
+    ) {
+        System.out.println("what the new record is" +  newRecord.getFirstName());
+        User oldRecord = userRepository.findById(newRecord.getUserId()).get();
+
+        oldRecord.setFirstName(newRecord.getFirstName());
+
+        userRepository.save(oldRecord);
+    }
+
+
+
+
+    //all apis related to login below
 
     @PostMapping("/api/register")
     public User register(@RequestBody User user, HttpSession session){
@@ -32,8 +49,6 @@ public class UserDao {
         userRepository.save(user);
         return user;
     }
-
-
     @PostMapping("/api/loggedin")
     public User loggedIn(HttpSession session){
        return  (User) session.getAttribute("currentUser");
@@ -42,6 +57,8 @@ public class UserDao {
     @PostMapping("/api/login")
     public User login(@RequestBody User loginUser, HttpSession session)
     {
+        System.out.println("logged in user : " + loginUser.getUsername());
+
         for(User user: userRepository.findAll()){
             if(user.getUsername().equals(loginUser.getUsername())){
                 session.setAttribute("currentUser", user);
