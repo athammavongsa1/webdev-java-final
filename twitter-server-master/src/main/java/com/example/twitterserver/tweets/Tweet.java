@@ -31,21 +31,50 @@ public class Tweet {
     @ManyToOne
     private User tweetedBy;
 
-//    @OneToMany(mappedBy = "liked")
-//    @JsonIgnore
-//    private List<Like> likes;
-//
-//    @Transient
-//    public Integer getLikesCount() {
-//        return likes.size();
-//    }
-//    public List<Like> getLikes() {
-//        return likes;
-//    }
-//
-//    public void setLikes(List<Like> likes) {
-//        this.likes = likes;
-//    }
+    @OneToMany(mappedBy = "liked")
+    @JsonIgnore
+    private List<Like> likes;
+
+
+    @OneToMany(mappedBy = "repliedTo")
+    @JsonIgnore
+    private List<Reply> replies;
+    @OneToMany(mappedBy = "reply")
+    @JsonIgnore
+    private List<Reply> repliedTo;
+
+    public List<Reply> getReplies() {
+        return replies;
+    }
+
+    public void setReplies(List<Reply> replies) {
+        this.replies = replies;
+    }
+
+    public List<Reply> getRepliedTo() {
+        return repliedTo;
+    }
+
+    public void setRepliedTo(List<Reply> repliedTo) {
+        this.repliedTo = repliedTo;
+    }
+
+    @Transient
+    public Integer getRepliesCount(){
+        return replies.size();
+    }
+
+    @Transient
+    public Integer getLikesCount() {
+        return likes.size();
+    }
+    public List<Like> getLikes() {
+        return likes;
+    }
+
+    public void setLikes(List<Like> likes) {
+        this.likes = likes;
+    }
 
 
     public Integer getTweetId() {
