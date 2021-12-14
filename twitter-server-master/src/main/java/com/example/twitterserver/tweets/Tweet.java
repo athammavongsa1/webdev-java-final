@@ -34,35 +34,11 @@ public class Tweet {
 //    @OneToMany(mappedBy = "liked")
 //    @JsonIgnore
 //    private List<Like> likes;
-
+//
 //    @Transient
 //    public Integer getLikesCount() {
 //        return likes.size();
 //    }
-//
-//    @OneToMany(mappedBy = "repliedTo")
-//    @JsonIgnore
-//    private List<Reply> replies;
-//    @OneToMany(mappedBy = "reply")
-//    @JsonIgnore
-//    private List<Reply> repliedTo;
-//
-//    public List<Reply> getReplies() {
-//        return replies;
-//    }
-//
-//    public void setReplies(List<Reply> replies) {
-//        this.replies = replies;
-//    }
-//
-//    public List<Reply> getRepliedTo() {
-//        return repliedTo;
-//    }
-//
-//    public void setRepliedTo(List<Reply> repliedTo) {
-//        this.repliedTo = repliedTo;
-//    }
-//
 //    public List<Like> getLikes() {
 //        return likes;
 //    }
@@ -70,6 +46,7 @@ public class Tweet {
 //    public void setLikes(List<Like> likes) {
 //        this.likes = likes;
 //    }
+
 
     public Integer getTweetId() {
         return tweetId;

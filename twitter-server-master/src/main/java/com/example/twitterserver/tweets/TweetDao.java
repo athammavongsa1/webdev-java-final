@@ -4,12 +4,12 @@ import com.example.twitterserver.users.User;
 import com.example.twitterserver.users.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import javax.servlet.http.HttpSession;
+import javax.transaction.Transactional;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true", allowedHeaders ="*", methods={RequestMethod.DELETE, RequestMethod.POST, RequestMethod.PUT,RequestMethod.GET } )
 public class TweetDao {
     @Autowired
     UserRepository userRepository;
@@ -27,7 +27,7 @@ public class TweetDao {
         }
 
     //probably could have just used this api but again has security problems
-    @GetMapping("/api/users/{userId}/tweets")
+    @GetMapping("/api/tweets/{userId}/tweets")
     public List<Tweet> findTweetsByUser(
             @PathVariable("userId") Integer userId) {
         return userRepository.findById(userId).get()
@@ -35,21 +35,18 @@ public class TweetDao {
     }
     @PostMapping("/api/postNewTweet")
     public Tweet postNewTweet(@RequestBody Tweet tweet){
-        return tweetRepository.save(tweet);
+         return tweetRepository.save(tweet);
+    }
 
+    @RequestMapping(value="/api/deleteUserTweet", method=RequestMethod.DELETE)
+    public void deleteUserTweet(@RequestBody Tweet tweet){
+        Integer tweetId = tweet.getTweetId();
+        tweetRepository.deleteById(tweetId);
     }
 
 
 
-//
-//    @PostMapping("/api/postNewTweet")
-//    public User register(@RequestBody Tweet tweet){
-//
-//        tweetRepository.save(tweet);
-//        return user;
-//    }
-//
-//
+
 
 }
 
