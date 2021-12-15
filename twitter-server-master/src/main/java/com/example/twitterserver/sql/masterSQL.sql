@@ -23,6 +23,13 @@
 -- INSERT INTO `Tuitter`.`who_to_follow`
 -- (`who_id`, `username`, `handle`,`avatar_icon`  )  values (null, 'Tesla', 'TSLA', '/imgs/tesla.png');
 --
+
+-- ANONYMOUS USER
+-- 1)
+-- INSERT INTO `db_tuiter2`.`users` (`username`) VALUES ('user');
+-- 2)
+-- UPDATE `db_tuiter2`.`users` SET `password` = 'jose' WHERE (`user_id` = '3');
+
 -- select * from Tuitter.who_to_follow;
 --
 -- SELECT * FROM Tuitter.users;

@@ -40,8 +40,8 @@ public class TweetDao {
                 .getTweets();
     }
     @PostMapping("/api/postNewTweet")
-    public Tweet postNewTweet(@RequestBody Tweet tweet){
-         return tweetRepository.save(tweet);
+    public void postNewTweet(@RequestBody Tweet tweet){
+         tweetRepository.save(tweet);
     }
 
     @RequestMapping(value="/api/deleteUserTweet", method=RequestMethod.DELETE)

@@ -63,23 +63,28 @@ public class UserDao {
     public User login(@RequestBody User loginUser, HttpSession session)
     {
         System.out.println("logged in user : " + loginUser.getUsername());
+        System.out.println("logged in user PW : " + loginUser.getPassword());
 
         for(User user: userRepository.findAll()){
-            if(user.getUsername().equals(loginUser.getUsername())){
+            if(user.getUsername().equals(loginUser.getUsername()) && (user.getPassword().equals(loginUser.getPassword()) ) ) {
                 session.setAttribute("currentUser", user);
                 return user;
             }
         }
+        System.out.println("from userDAO.js, NO MATCH");
         return null;
 
     }
 
-    @PostMapping("api/logout")
-    public void logout( HttpSession session)
+    @PostMapping("/api/logout")
+    public void logout(HttpSession session)
     {
         session.invalidate();
 
     }
+
+
+
 
 
 

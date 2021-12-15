@@ -17,6 +17,7 @@ public class ReplyDao {
     @GetMapping("/api/tweets/{tweetId}/replies")
     public List<Reply> findRepliesForTweet(
             @PathVariable("tweetId") Integer tweetId) {
+//        return tweetRepository.findById(tweetId).get().getReplies();
         return tweetRepository.findById(tweetId).get().getReplies();
     }
 
