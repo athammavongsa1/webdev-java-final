@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+//this is the likeDAO restController
 @RestController
 @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true", allowedHeaders ="*", methods={RequestMethod.DELETE, RequestMethod.POST, RequestMethod.PUT,RequestMethod.GET } )
 public class LikeDao {
