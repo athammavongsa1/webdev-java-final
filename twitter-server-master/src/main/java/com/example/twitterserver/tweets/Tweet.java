@@ -68,6 +68,7 @@ public class Tweet {
     public Integer getLikesCount() {
         return likes.size();
     }
+
     public List<Like> getLikes() {
         return likes;
     }

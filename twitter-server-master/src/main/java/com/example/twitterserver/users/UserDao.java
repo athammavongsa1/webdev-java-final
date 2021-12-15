@@ -1,5 +1,7 @@
 package com.example.twitterserver.users;
 
+import com.example.twitterserver.likes.Like;
+import com.example.twitterserver.tweets.Tweet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,16 +37,23 @@ public class UserDao {
         userRepository.save(oldRecord);
     }
 
+    @GetMapping("/api/user/getLikes/{userId}")
+    public List<Like> findTweetById(
+            @PathVariable("userId") Integer userId) {
+        return userRepository.findById(userId).get().getLikes();
+    }
+
+
     //all apis related to login below
 
     @PostMapping("/api/register")
     public User register(@RequestBody User user, HttpSession session){
-
         session.setAttribute("currentUser", user);
-
         userRepository.save(user);
         return user;
     }
+
+
     @PostMapping("/api/loggedin")
     public User loggedIn(HttpSession session){
        return  (User) session.getAttribute("currentUser");

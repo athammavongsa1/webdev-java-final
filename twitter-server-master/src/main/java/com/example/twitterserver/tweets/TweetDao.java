@@ -1,5 +1,7 @@
 package com.example.twitterserver.tweets;
 
+import com.example.twitterserver.likes.Like;
+import com.example.twitterserver.likes.LikeRepository;
 import com.example.twitterserver.users.User;
 import com.example.twitterserver.users.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,15 +17,19 @@ public class TweetDao {
     UserRepository userRepository;
     @Autowired
     TweetRepository tweetRepository;
+    @Autowired
+    LikeRepository likeRepository;
+
     @GetMapping("/api/tweets/{tweetId}")
     public Tweet findTweetById(
             @PathVariable("tweetId") Integer tweetId) {
         return tweetRepository.findById(tweetId).get();
     }
+
     @GetMapping("/api/tweets")
     public List<Tweet> findAllTweets()
         {
-        return (List<Tweet>) tweetRepository.findAll();
+            return (List<Tweet>) tweetRepository.findAll();
         }
 
     //probably could have just used this api but again has security problems
@@ -43,6 +49,8 @@ public class TweetDao {
         Integer tweetId = tweet.getTweetId();
         tweetRepository.deleteById(tweetId);
     }
+
+
 
 
 
