@@ -46,6 +46,7 @@ public class TweetDao {
     @RequestMapping(value="/api/deleteUserTuitt", method=RequestMethod.DELETE)
     public void deleteUserTweet(@RequestBody Tweet tweet){
         Integer tweetId = tweet.getTweetId();
+        System.out.println("tweetId"+ tweetId);
         tweetRepository.deleteById(tweetId);
     }
 

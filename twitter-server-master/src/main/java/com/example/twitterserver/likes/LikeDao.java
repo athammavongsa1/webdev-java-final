@@ -20,14 +20,14 @@ public class LikeDao {
         return (List<Like>) likeRepository.findAll();
     }
 
-    @RequestMapping(value="/api/likeTweet", method=RequestMethod.POST)
+    @RequestMapping(value="/api/likeTuitt", method=RequestMethod.POST)
     public void createNewLike(@RequestBody Tweet tweetThatWasLiked) {
         Like newLike = new Like();
         newLike.setLikedBy(tweetThatWasLiked.getTweetedBy());
         newLike.setLiked(tweetThatWasLiked);
         likeRepository.save(newLike);
     }
-
+//
 
     @RequestMapping(value="/api/unlikeTweet", method=RequestMethod.DELETE)
     public void deleteLike(@RequestBody Tweet tweetThatWasUnliked){
