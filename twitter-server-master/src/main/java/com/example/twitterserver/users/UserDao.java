@@ -34,6 +34,12 @@ public class UserDao {
     ) {
         User oldRecord = userRepository.findById(newRecord.getUserId()).get();
         oldRecord.setFirstName(newRecord.getFirstName());
+        oldRecord.setLastName(newRecord.getLastName());
+        oldRecord.setLocation(newRecord.getLocation());
+        oldRecord.setWebsite(newRecord.getWebsite());
+        oldRecord.setBio(newRecord.getBio());
+        oldRecord.setProfilePicture(newRecord.getProfilePicture());
+
         userRepository.save(oldRecord);
     }
 
