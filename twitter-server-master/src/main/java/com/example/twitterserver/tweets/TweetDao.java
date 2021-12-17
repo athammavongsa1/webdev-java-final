@@ -6,8 +6,7 @@ import com.example.twitterserver.users.User;
 import com.example.twitterserver.users.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import javax.servlet.http.HttpSession;
-import javax.transaction.Transactional;
+
 import java.util.List;
 
 @RestController
@@ -26,25 +25,25 @@ public class TweetDao {
         return tweetRepository.findById(tweetId).get();
     }
 
-    @GetMapping("/api/tweets")
+    @GetMapping("/api/tuitts")
     public List<Tweet> findAllTweets()
         {
             return (List<Tweet>) tweetRepository.findAll();
         }
 
     //probably could have just used this api but again has security problems
-    @GetMapping("/api/tweets/{userId}/tweets")
+    @GetMapping("/api/tweets/{userId}/tuitts")
     public List<Tweet> findTweetsByUser(
             @PathVariable("userId") Integer userId) {
         return userRepository.findById(userId).get()
                 .getTweets();
     }
-    @PostMapping("/api/postNewTweet")
+    @PostMapping("/api/postNewTuitt")
     public void postNewTweet(@RequestBody Tweet tweet){
          tweetRepository.save(tweet);
     }
 
-    @RequestMapping(value="/api/deleteUserTweet", method=RequestMethod.DELETE)
+    @RequestMapping(value="/api/deleteUserTuitt", method=RequestMethod.DELETE)
     public void deleteUserTweet(@RequestBody Tweet tweet){
         Integer tweetId = tweet.getTweetId();
         tweetRepository.deleteById(tweetId);
